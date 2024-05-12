@@ -1,0 +1,4 @@
+.terraform
+*lock*
+ansible
+terraform.tfstate*
