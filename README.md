@@ -1,5 +1,9 @@
 # Build a Kubernetes cluster using K3s via Ansible
 
+> [!IMPORTANT]  
+> This fork is made for https://github.com/konstfish/shoal :)
+
+
 Author: <https://github.com/itwars>  
 Current Maintainer: <https://github.com/dereknola>
 

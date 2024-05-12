@@ -1,0 +1,30 @@
+vrrp_script chk_haproxy {
+    script 'killall -0 haproxy' # faster than pidof
+    interval 2
+}
+
+vrrp_instance haproxy-vip {
+    interface {{ lb_interface }}
+    state {% if inventory_hostname == groups['server'][0] %}MASTER{% else %}BACKUP{% endif %}
+    
+    priority {% if inventory_hostname == groups['server'][0] %}200{% else %}100{% endif %}
+
+    virtual_router_id 51
+
+    unicast_src_ip {{ hostvars[inventory_hostname]['ansible_host'] }}
+    unicast_peer {
+{% for host in groups['server'] %}
+{% if host != inventory_hostname %}
+        {{ hostvars[host]['ansible_host'] }}
+{% endif %}
+{% endfor %}
+    }
+
+    virtual_ipaddress {
+        {{ lb_address }}/24 label {{ lb_interface }}:10
+    }
+
+    track_script {
+        chk_haproxy
+    }
+}
