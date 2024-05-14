@@ -21,6 +21,7 @@
   tasks:
     - include_role:
         name: basic-setup-rpi
+      when: cluster_type == "raspberry"
     - include_role:
         name: haproxy-keepalived
       when: cluster_type == "raspberry"
