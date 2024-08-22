@@ -19,7 +19,7 @@ variable "ansible_user" {
   default = "root"
 }
 
-variable "ansible_ssh_key" {
+variable "ansible_ssh_key_path" {
   type    = string
   default = "./artifacts/ssh_key"
 }

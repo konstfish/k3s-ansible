@@ -4,7 +4,7 @@ resource "local_file" "ansible_inventory" {
     worker_nodes     = var.worker_nodes,
 
     ansible_user    = var.ansible_user,
-    ansible_ssh_key = var.ansible_ssh_key,
+    ansible_ssh_key = var.ansible_ssh_key_path,
 
     user_name   = var.user_name,
     github_user = var.github_user,
