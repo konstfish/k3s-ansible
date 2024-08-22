@@ -9,9 +9,9 @@
     var: api_endpoint
 
 # apt update
-- name: Update apt cache
-  apt:
-    update_cache: "yes"
+#- name: Update apt cache
+#  apt:
+#    update_cache: "yes"
 
 - name: Install git
   apt:

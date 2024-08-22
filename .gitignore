@@ -5,4 +5,5 @@ venv
 inventory.yml
 playbook/debug.yml
 artifacts
+ssh_key
 .DS_Store

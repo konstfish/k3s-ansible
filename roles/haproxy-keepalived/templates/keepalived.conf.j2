@@ -21,7 +21,7 @@ vrrp_instance haproxy-vip {
     }
 
     virtual_ipaddress {
-        {{ lb_address }}/24 label {{ lb_interface }}:10
+        {{ lb_internal_address }}/24 label {{ lb_interface }}:10
     }
 
     track_script {
