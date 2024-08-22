@@ -5,3 +5,4 @@ venv
 inventory.yml
 playbook/debug.yml
 artifacts
+.DS_Store
