@@ -32,7 +32,7 @@ resource "local_file" "ansible_inventory" {
       echo "$SSH_PRIVATE_KEY" > artifacts/ssh_key && chmod 600 artifacts/ssh_key
       ansible-playbook -i inventory.yml playbook/install.yml --extra-vars "kubeconfig_localhost=true kubeconfig_localhost_ansible_host=false"
     EOT
-    working_dir = "k3s-ansible"
+    working_dir = path.module
     environment = {
       ANSIBLE_HOST_KEY_CHECKING = "false"
       SSH_PRIVATE_KEY           = nonsensitive(var.ansible_ssh_key)
