@@ -66,7 +66,7 @@ variable "lb_port" {
   default = 6443
 }
 
-variable "extra_server_args" {
+variable "extra_arguments" {
   type    = string
   default = ""
 }

@@ -39,7 +39,7 @@ k3s_cluster:
     lb_port: ${lb_port}
 
     api_endpoint: "{{ hostvars[groups['server'][0]]['ansible_host'] | default(groups['server'][0]) }}"
-    common_args: "--flannel-iface {{ lb_interface }} "
+    common_args: "--flannel-iface {{ lb_interface }} ${extra_arguments}"
     server_config_yaml: |
       cluster-cidr: "${cluster_cidr}"
       service-cidr: "${service_cidr}"
