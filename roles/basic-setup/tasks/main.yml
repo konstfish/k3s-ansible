@@ -102,3 +102,9 @@
     state: mounted
     fstype: nfs
   when: cluster_type == "raspberry"
+
+- name: Create /etc/k3s-resolv.conf
+  ansible.builtin.copy:
+    content: "nameserver 1.1.1.1"
+    dest: /etc/k3s-resolv.conf
+    mode: '0644'
