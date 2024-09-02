@@ -21,19 +21,22 @@ locals {
 
 resource "local_file" "ansible_inventory" {
   content = templatefile("${path.module}/../inventory.tpl", {
-    controller_nodes = local.controller_nodes,
-    worker_nodes     = null,
+    controller_nodes = local.controller_nodes
+    worker_nodes     = null
 
-    ansible_user    = "ubuntu",
-    ansible_ssh_key = "~/.ssh/id_rsa",
+    ansible_user    = "ubuntu"
+    ansible_ssh_key = "~/.ssh/id_rsa"
 
-    user_name   = "ubuntu",
-    github_user = "konstfish",
+    user_name   = "ubuntu"
+    github_user = "asdf"
 
-    k3s_version  = "123",
-    k3s_token    = "xxx",
-    cluster_name = "test",
-    cluster_type = "raspberry",
+    k3s_version  = "123"
+    k3s_token    = "xxx"
+    cluster_name = "test"
+    cluster_type = "raspberry"
+
+    extra_arguments = ""
+    extra_manifests = ["test1", "test2"]
 
     lb_public_address   = "1.1.1.1"
     lb_internal_address = "8.8.8.8"

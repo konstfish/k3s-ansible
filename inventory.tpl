@@ -43,3 +43,5 @@ k3s_cluster:
     server_config_yaml: |
       cluster-cidr: "${cluster_cidr}"
       service-cidr: "${service_cidr}"
+  
+    extra_manifests: ${jsonencode(extra_manifests)}

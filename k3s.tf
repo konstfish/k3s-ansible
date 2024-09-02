@@ -19,9 +19,11 @@ resource "local_file" "ansible_inventory" {
     lb_interface        = var.lb_interface
     lb_port             = var.lb_port
 
-    extra_arguments   = var.extra_arguments
-    cluster_cidr      = var.cluster_cidr
-    service_cidr      = var.service_cidr
+    extra_arguments = var.extra_arguments
+    extra_manifests = var.extra_manifests
+
+    cluster_cidr = var.cluster_cidr
+    service_cidr = var.service_cidr
   })
 
   filename = "${path.module}/inventory.yml"

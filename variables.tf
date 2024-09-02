@@ -85,3 +85,8 @@ variable "ansible_ssh_key" {
   type      = string
   sensitive = true
 }
+
+variable "extra_manifests" {
+  type    = list(string)
+  default = []
+}
