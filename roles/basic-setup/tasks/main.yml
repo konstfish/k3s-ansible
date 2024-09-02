@@ -96,7 +96,7 @@
 # nfs
 - name: Mount NFS Share
   ansible.posix.mount:
-    src: 10.0.1.3:/volume1/stor
+    src: 10.0.1.1:/volume1/stor
     path: /stor
     opts: rw,bg,hard,nointr,rsize=32768,wsize=32768,tcp,timeo=600
     state: mounted
