@@ -32,7 +32,7 @@ resource "local_file" "ansible_inventory" {
     command     = <<EOT
       sleep 10 # wait for nodes to be ready
       echo "$SSH_PRIVATE_KEY" > artifacts/ssh_key && chmod 600 artifacts/ssh_key
-      ansible-playbook -i inventory.yml playbook/install.yml --extra-vars "kubeconfig_localhost=true kubeconfig_localhost_ansible_host=false"
+      ansible-playbook -i inventory.yml playbooks/install.yml --extra-vars "kubeconfig_localhost=true kubeconfig_localhost_ansible_host=false"
     EOT
     working_dir = path.module
     environment = {
