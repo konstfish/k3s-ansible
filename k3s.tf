@@ -20,6 +20,9 @@ resource "local_file" "ansible_inventory" {
     lb_port             = var.lb_port
 
     extra_arguments = var.extra_arguments
+    extra_arguments_agent = var.extra_arguments_agent
+    extra_arguments_server = var.extra_arguments_server
+    
     extra_manifests = var.extra_manifests
 
     cluster_cidr = var.cluster_cidr
