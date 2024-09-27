@@ -85,6 +85,7 @@
     repo: https://github.com/spaceship-prompt/spaceship-prompt.git
     dest: /home/{{ user_name }}/.zsh/spaceship
     version: master
+    force: true
     depth: 1
 
 - name: Add spaceship-prompt to zshrc for {{ user_name }}

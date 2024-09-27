@@ -7,7 +7,7 @@ k3s_cluster:
         "${node.name}":
           ansible_host: "${node.ansible_host}"
           ansible_ssh_host: "${node.ansible_ssh_host}"
-          extra_server_args: "--advertise-address ${node.ansible_host} --node-ip ${node.ansible_host} --node-external-ip ${node.ansible_ssh_host} --tls-san ${lb_internal_address} --disable=traefik --disable=servicelb --disable=local-storage {{ common_args }}"
+          extra_server_args: "--advertise-address ${node.ansible_host} --node-ip ${node.ansible_host} --node-external-ip ${node.ansible_ssh_host} --tls-san ${lb_internal_address} --disable=traefik --disable=servicelb --disable=local-storage {{ common_args }} {{ extra_args }}"
 %{ endfor ~}
 %{ if worker_nodes != null }
     agent:
@@ -39,7 +39,9 @@ k3s_cluster:
     lb_port: ${lb_port}
 
     api_endpoint: "{{ hostvars[groups['server'][0]]['ansible_host'] | default(groups['server'][0]) }}"
-    common_args: "--flannel-iface {{ lb_interface }} --kubelet-arg='resolv-conf=/etc/k3s-resolv.conf' ${extra_arguments}"
+    common_args: "--flannel-iface {{ lb_interface }} --kubelet-arg='resolv-conf=/etc/k3s-resolv.conf'"
+    extra_args: "${extra_arguments}"
+
     server_config_yaml: |
       cluster-cidr: "${cluster_cidr}"
       service-cidr: "${service_cidr}"
