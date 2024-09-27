@@ -71,6 +71,16 @@ variable "extra_arguments" {
   default = ""
 }
 
+variable "extra_arguments_agent" {
+  type    = string
+  default = ""
+}
+
+variable "extra_arguments_server" {
+  type    = string
+  default = ""
+}
+
 variable "cluster_cidr" {
   type    = string
   default = "10.44.0.0/16"
